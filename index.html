@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fleet Management Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <aside class="left-panel">
+        <div class="brand">
+            <h2>FleetPro</h2>
+            <p>Smart Fleet Control</p>
+        </div>
+
+        <div class="quick-stats">
+            <div>
+                <span>Total</span>
+                <h3 id="totalVehicles">0</h3>
+            </div>
+            <div>
+                <span>Available</span>
+                <h3 id="availableVehicles">0</h3>
+            </div>
+            <div>
+                <span>Booked</span>
+                <h3 id="bookedVehicles">0</h3>
+            </div>
+            <div>
+                <span>Service</span>
+                <h3 id="maintenanceVehicles">0</h3>
+            </div>
+        </div>
+
+        <button id="themeToggle">Toggle Theme</button>
+    </aside>
+
+    <main class="main-area">
+
+        <section class="hero-card">
+            <div>
+                <h1>Fleet Management Dashboard</h1>
+                <p>Track vehicles, drivers, bookings, revenue and maintenance status.</p>
+            </div>
+
+            <div class="filters">
+                <input type="text" id="searchInput" placeholder="Search vehicle, driver or number">
+
+                <select id="statusFilter">
+                    <option value="all">All Vehicles</option>
+                    <option value="Available">Available</option>
+                    <option value="Booked">Booked</option>
+                    <option value="Maintenance">Maintenance</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="content-grid">
+
+            <div class="fleet-section">
+                <div class="section-title">
+                    <h2>Vehicle Cards</h2>
+                    <p>Live fleet overview</p>
+                </div>
+
+                <div id="fleetCards" class="fleet-cards"></div>
+            </div>
+
+            <div class="form-section">
+                <h2>Add Vehicle</h2>
+
+                <form id="vehicleForm">
+                    <input type="text" id="vehicleName" placeholder="Vehicle Name" required>
+
+                    <select id="vehicleType" required>
+                        <option value="">Vehicle Type</option>
+                        <option>Sedan</option>
+                        <option>SUV</option>
+                        <option>Luxury Car</option>
+                        <option>Tempo Traveller</option>
+                        <option>Mini Bus</option>
+                    </select>
+
+                    <input type="text" id="vehicleNumber" placeholder="Vehicle Number" required>
+                    <input type="text" id="driverName" placeholder="Driver Name" required>
+
+                    <select id="vehicleStatus" required>
+                        <option value="">Status</option>
+                        <option>Available</option>
+                        <option>Booked</option>
+                        <option>Maintenance</option>
+                    </select>
+
+                    <input type="number" id="revenue" placeholder="Revenue ₹" required>
+                    <input type="date" id="serviceDate" required>
+
+                    <button type="submit">Save Vehicle</button>
+                </form>
+            </div>
+
+        </section>
+
+        <section class="table-section">
+            <h2>Fleet Records</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Vehicle</th>
+                        <th>Type</th>
+                        <th>Number</th>
+                        <th>Driver</th>
+                        <th>Status</th>
+                        <th>Revenue</th>
+                        <th>Service Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="fleetTable"></tbody>
+            </table>
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
